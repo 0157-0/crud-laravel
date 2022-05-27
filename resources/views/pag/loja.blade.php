@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -7,6 +8,8 @@
     
 
 <!-- cards -->
+@foreach($items as $item)
+
 
 <div tabindex="0" class="focus:outline-none">
     <!-- Remove py-8 -->
@@ -31,8 +34,8 @@
                     </div>
                     <div class="p-4">
                         <div class="flex items-center">
-                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">Iphone</h2>
-                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 pl-5">4 days ago</p>
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">{{$item->name}}</h2>
+                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 pl-5">{{$item->valor}}</p>
                         </div>
                         <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">The Apple iPhone X1 is available in 3 colors with 64GB memory. Shoot amazing videos</p>
                         <div class="flex mt-4">
@@ -70,7 +73,7 @@
                     </div>
                     <div class="p-4">
                         <div class="flex items-center">
-                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">iphone X2</h2>
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">{{$item->name}}</h2>
                             <p tabindex="0" class="focus:outline-none text-xs text-gray-600 pl-5">4 days ago</p>
                         </div>
                         <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
@@ -808,7 +811,7 @@
 </div>
 <!-- Card 4 Ends -->
 
-
+@endforeach
         </div>
     </div>
     <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->

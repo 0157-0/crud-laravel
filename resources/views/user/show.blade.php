@@ -14,11 +14,11 @@
         />
         <p class="pt-2 text-lg font-semibold">{{ $user->name}}</p>
         <p class="text-sm text-gray-600">{{ $user->email}}</p>
-        <p class="text-sm text-gray-600">{{ $user->created_at}}}</p>
+        <p class="text-sm text-gray-600">{{ $user->created_at}}</p>
         
       </div>
       <div class="border-b">
-        <a href="#" class="px-4 py-2 hover:bg-gray-100 flex">
+        <a href="{{route('user.editar', $user->id)}}" class="px-4 py-2 hover:bg-gray-100 flex">
           <div class="text-gray-800">
             <svg
               fill="none"
@@ -34,8 +34,9 @@
           </div>
      
           <div class="pl-3">
+           
             <p class="text-sm font-medium text-gray-800 leading-none">Configuração da conta</p>
-            <p class="text-xs text-gray-500">Foto, e-mail, senha</p>
+            <p class="text-xs text-gray-500">Nome, e-mail, senha</p>
           </div>
         </a>
           
@@ -44,13 +45,22 @@
           <p class="text-sm font-medium text-gray-800 leading-none">Voltar</p>
         </a>
         
-        <a href="#" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
-          <p class="text-sm font-medium text-gray-800 leading-none">Support FAQ</p>
+        <a href="{{ route('user.deletar', $user->id) }}" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
+          <p class="text-sm font-medium text-gray-800 leading-none">Excluir</p>
         </a>
         <a href="{{route('user.login')}}" class="px-4 py-2 pb-4 hover:bg-gray-100 flex">
           <p class="text-sm font-medium text-gray-800 leading-none">Logout</p>
         </a>
       </div>
+      <form action="{{ route('user.deletar', $user->id) }}" method="post">
+        @method('DELETE')
+        @csrf
+      <button type="submit" class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
+        Excluir
+      </button>
+      </form>
     </div>
+    
   </div>
+ 
   @endsection
